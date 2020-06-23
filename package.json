@@ -1,0 +1,22 @@
+{
+  "name": "pgpcccornanalysispjct",
+  "version": "1.0.0",
+  "description": "Capstone Project PGPCC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rvishwan/PGPCCCoronaAnalysisPjct.git"
+  },
+  "author": "rvishwan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rvishwan/PGPCCCoronaAnalysisPjct/issues"
+  },
+  "homepage": "https://github.com/rvishwan/PGPCCCoronaAnalysisPjct#readme",
+  "devDependencies": {
+    "express": "^4.17.1"
+  }
+}
