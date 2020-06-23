@@ -4,6 +4,8 @@
   "description": "Capstone Project PGPCC",
   "main": "index.js",
   "scripts": {
+    "restart": "pm2 startOrRestart ecosystem.config.js",
+    "deploy": "pm2 deploy ecosystem.config.js production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,6 +19,7 @@
   },
   "homepage": "https://github.com/rvishwan/PGPCCCoronaAnalysisPjct#readme",
   "devDependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "pm2": "^4.4.0"
   }
 }
