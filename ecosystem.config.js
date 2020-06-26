@@ -10,7 +10,7 @@ module.exports = {
       key: '/home/rakesh/rak/covid19.pem',
       ref: 'origin/master',
       repo: 'git@github.com:rvishwan/PGPCCCoronaAnalysisPjct.git',
-      path: '/home/ubuntu/gitrepofolder',
+      path: '/home/ubuntu/covid19projectserver',
       'post-deploy': 'npm install && pm2 startOrRestart ecosystem.config.js'
     }
   }
