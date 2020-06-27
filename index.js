@@ -1,4 +1,5 @@
 const express = require('express')
+const router = express.Router();
 const app = express()
 
 const port =3000
@@ -14,17 +15,14 @@ var bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-app.use(function(req, res) {
+app.use('/analysestatus',(req, res) => {
   var payload = req.body
   accessUserStatus(req, res)
-  console.log(payload)
- // var test = payload['message']
-  //console.log(test)
-  //res.send(req.body)
 })
 
 const accessUserStatus = (request, response) => {
-  const { location } = request.body
-  console.log(location)
-  response.status(201).send(`Submitted `)
+  var location  = request.body
+  console.log(location.city)
+  console.log(location.state)
+  response.status(201).send('Submitted')
 }
