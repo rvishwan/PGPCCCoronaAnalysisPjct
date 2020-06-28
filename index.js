@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router();
 const app = express()
 
-const port =3000
+const port = 3000
 // app.get('/', (req, res) => {
 //   res.send('HEY!')
 // })
@@ -39,7 +39,17 @@ const accessUserStatus = (request, response) => {
     response.status(201).send('Unsafe')
   }*/
   const docClient = new AWS.DynamoDB.DocumentClient({region: 'us-east-1'});
-
+	
+	if (location.city == "Bengaluru") {
+		location.city = "Bangalore Urban district";
+	}
+	else if (location.city == "Tiruchi") {
+		location.city = "Tiruchirappalli"
+	}
+	else if (location.city == "Kanyakumari") {
+		location.city = "Kanyakumari district"
+	}
+	
 	var params = {
 		TableName: "covid19citydata",
 		Key: {
@@ -54,6 +64,11 @@ const accessUserStatus = (request, response) => {
 		}
 		else {
 			console.log("covid19citydata::fetchOneByKey::success -  " + JSON.stringify(data, null, 2));
+			var totalcases = data.Item.confirmed
+			var totaldeaths = data.Item.deaths
+			var sitemsg = "Total number of Confirmed cases is "+totalcases+" in your location and total deaths is "+totaldeaths+" so stay safe and please carefully read the Do's and Dont's provided in the website home page. Thank you for visiting our website!"
+			console.log(sitemsg)
+//			response.status(201).send("Thank You!")
 		}
 	});
 }
