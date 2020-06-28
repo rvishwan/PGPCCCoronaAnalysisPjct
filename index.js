@@ -24,5 +24,12 @@ const accessUserStatus = (request, response) => {
   var location  = request.body
   console.log(location.city)
   console.log(location.state)
-  response.status(201).send('Submitted')
+
+  //TO DO :This is sample checking, needs to be replaced once we read from db
+  if(location.city == 'Bengaluru'){
+      response.status(201).send('Safe')
+  }
+  else{
+    response.status(201).send('Unsafe')
+  }
 }
