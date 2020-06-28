@@ -66,9 +66,12 @@ const accessUserStatus = (request, response) => {
 			console.log("covid19citydata::fetchOneByKey::success -  " + JSON.stringify(data, null, 2));
 			var totalcases = data.Item.confirmed
 			var totaldeaths = data.Item.deaths
-			var sitemsg = "Total number of Confirmed cases is "+totalcases+" in your location and total deaths is "+totaldeaths+" so stay safe and please carefully read the Do's and Dont's provided in the website home page. Thank you for visiting our website!"
-			console.log(sitemsg)
-//			response.status(201).send("Thank You!")
+//			var sitemsg = "Total number of Confirmed cases is "+totalcases+" in your location and total deaths is "+totaldeaths+" so stay safe and please carefully read the Do's and Dont's provided in the website home page. Thank you for visiting our website!"
+			if (totalcases >= 500) {
+				response.status(201).send('Unsafe')
+			}else {
+				response.status(201).send('Safe')
+			}
 		}
 	});
 }
