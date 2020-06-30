@@ -72,7 +72,7 @@ const accessUserStatus = (request, response) => {
 			if (totalcases >= 500) {
 				response.status(201).json({id:'Unsafe', confirmed: totalcases, deaths:totaldeaths})
 			}else {
-				response.status(201).send('Safe')
+				response.status(201).send({id:'Safe', confirmed: totalcases, deaths:totaldeaths})
 			}
 		}
 	});
